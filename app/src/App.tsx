@@ -14,15 +14,17 @@ function App() {
   const [activeAccount, setActiveAccount] = useState<AccountInfo>();
   const [dekuClient, setDekuClient] = useState<DekuToolkit>();
 
-  const ticketer: string = "KT1QvZPUoXwz5zQL6zDpFyyPp5iChbHfnXC1";
+  const ticketer: string = process.env["REACT_APP_CONTRACT"]!;
   const ticketBytes: string = "050505030b";
 
   useEffect(() => {
     (async () => {
       setdAppClient(new DAppClient({ name: "Test" }));
 
-      setDekuClient(new DekuToolkit({ dekuRpc: "https://deku-canonical-vm0.deku-v1.marigold.dev", dekuSigner: fromBeaconSigner(dAppClient!) })
-        .setTezosRpc("https://ghostnet.tezos.marigold.dev")
+      setDekuClient(new DekuToolkit({
+        dekuRpc: process.env["REACT_APP_DEKU_NODE"]!, dekuSigner: fromBeaconSigner(dAppClient!)
+      })
+        .setTezosRpc(process.env["REACT_APP_TEZOS_NODE"]!)
         .onBlock(block => {
           console.log("The client received a block");
           console.log(block);

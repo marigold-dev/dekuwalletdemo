@@ -21,8 +21,8 @@ const ConnectButton = ({
 
             const permissions = await Tezos.requestPermissions({
                 network: {
-                    type: NetworkType.GHOSTNET,
-                    rpcUrl: "https://GHOSTNET.tezos.marigold.dev"
+                    type: process.env["REACT_APP_NETWORK"] ? NetworkType[process.env["REACT_APP_NETWORK"].toUpperCase() as keyof typeof NetworkType] : NetworkType.GHOSTNET,
+                    rpcUrl: process.env["REACT_APP_TEZOS_NODE"]!
                 }
             });
             setUserAddress(permissions.address);
