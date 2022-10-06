@@ -1,0 +1,136 @@
+{
+    "language": "en",
+    "contractsDir": "contracts",
+    "artifactsDir": "artifacts",
+    "contracts": {
+        "pokeGame.jsligo": {
+            "sourceFile": "pokeGame.jsligo",
+            "hash": "5737454d4dd7c3947452a5d2003c30353b62f19a6d73f98ad830a187574b3751"
+        },
+        "pokeGame.storages.jsligo": {
+            "sourceFile": "pokeGame.storages.jsligo",
+            "hash": "5737454d4dd7c3947452a5d2003c30353b62f19a6d73f98ad830a187574b3751"
+        },
+        "pokeGame.parameters.jsligo": {
+            "sourceFile": "pokeGame.parameters.jsligo",
+            "hash": "5737454d4dd7c3947452a5d2003c30353b62f19a6d73f98ad830a187574b3751"
+        }
+    },
+    "network": {
+        "ghostnet": {
+            "label": "ghostnet",
+            "rpcUrl": "https://ghostnet.tezos.marigold.dev",
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg",
+            "faucet": {
+                "mnemonic": [
+                    "away",
+                    "virus",
+                    "stand",
+                    "kingdom",
+                    "sorry",
+                    "absurd",
+                    "close",
+                    "found",
+                    "warrior",
+                    "icon",
+                    "nominee",
+                    "theme",
+                    "enough",
+                    "kiss",
+                    "double"
+                ],
+                "email": "",
+                "password": "",
+                "amount": "",
+                "activation_code": "",
+                "pkh": "tz1Qjvu8xaRgTjQmHBBDHaM1HGomCTYBgLZJ"
+            }
+        },
+        "kathmandunet": {
+            "label": "kathmandunet",
+            "rpcUrl": "https://kathmandunet.tezos.marigold.dev",
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg",
+            "faucet": {
+                "mnemonic": [
+                    "away",
+                    "virus",
+                    "stand",
+                    "kingdom",
+                    "sorry",
+                    "absurd",
+                    "close",
+                    "found",
+                    "warrior",
+                    "icon",
+                    "nominee",
+                    "theme",
+                    "enough",
+                    "kiss",
+                    "double"
+                ],
+                "email": "",
+                "password": "",
+                "amount": "",
+                "activation_code": "",
+                "pkh": "tz1iTk2ZWGSDUL3Nv3g8P19qk1pqZx5Lac6D"
+            }
+        }
+    },
+    "sandbox": {
+        "local": {
+            "label": "Local Tezos Sandbox",
+            "rpcUrl": "http://localhost:20000",
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg"
+        }
+    },
+    "environment": {
+        "default": "development",
+        "development": {
+            "networks": [],
+            "sandboxes": [
+                "local"
+            ],
+            "storage": {}
+        },
+        "testing": {
+            "networks": [
+                "ghostnet"
+            ],
+            "sandboxes": [],
+            "storage": {},
+            "aliases": {
+                "pokeGame": {
+                    "address": "KT1SiCmyxfdwumPKAKTdHRPEPunAeQwKKTmY"
+                }
+            }
+        }
+    },
+    "accounts": {
+        "bob": "3_000_000_000",
+        "alice": "3_000_000_000",
+        "john": "3_000_000_000",
+        "jane": "3_000_000_000",
+        "joe": "3_000_000_000"
+    },
+    "plugins": [
+        {
+            "name": "@taqueria/plugin-ligo",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-tezos-client",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-taquito",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-contract-types",
+            "type": "npm"
+        }
+    ],
+    "projectDir": "/home/zamrokk/multiaccountwalletdemo",
+    "configFile": "/home/zamrokk/multiaccountwalletdemo/.taq/config.json",
+    "hash": "6e296ff9ebdceeb071a72b204cfa373b6e85c745ee9d3377c34c4cc70cc3c7e9"
+}
