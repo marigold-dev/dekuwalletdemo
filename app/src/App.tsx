@@ -1,4 +1,4 @@
-import { AccountInfo, BeaconMessageType, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope } from '@airgap/beacon-sdk';
+import { AccountInfo, BeaconMessageType, BlockchainRequestV3, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope, DekuTransferRequest } from '@airgap/beacon-sdk';
 import { DekuToolkit, fromBeaconSigner } from '@marigold-dev/deku-toolkit';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -57,17 +57,21 @@ function App() {
 
   const handleL2Transfer = async () => {
     try {
-      await dAppClient?.request(
-        {
-          blockchainIdentifier: DekuBlockchain.name,
-          type: BeaconMessageType.BlockchainRequest,
-          accountId: activeAccount!.accountIdentifier,
-          blockchainData: {
-            type: DekuMessageType.transfer_request,
-            scope: DekuPermissionScope.transfer
-          }
+
+      let request: DekuTransferRequest = {
+        blockchainIdentifier: "deku",
+        type: BeaconMessageType.BlockchainRequest,
+        blockchainData: {
+          type: DekuMessageType.transfer_request,
+          scope: DekuPermissionScope.transfer,
+          amount: "1",
+          mode: 'submit',
+          recipient: userAddress2,
+          sourceAddress: userAddress
         }
-      );
+      };
+
+      await dAppClient?.request({ ...request, accountId: activeAccount!.accountIdentifier } as BlockchainRequestV3<"deku">);
       // const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
     } catch (error: any) {
       console.log(`Error: `, error);

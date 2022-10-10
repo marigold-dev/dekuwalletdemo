@@ -1,7 +1,8 @@
 import {
-    AccountInfo,
-    DAppClient,
-    NetworkType
+    AccountInfo, DAppClient,
+    NetworkType,
+    PermissionResponseOutput,
+    PermissionScope
 } from "@airgap/beacon-sdk";
 import { Dispatch, SetStateAction } from "react";
 
@@ -22,12 +23,15 @@ const ConnectButton = ({
             //to authorize new connection
             await Tezos.clearActiveAccount();
 
-            const permissions = await Tezos.requestPermissions({
-                network: {
-                    type: process.env["REACT_APP_NETWORK"] ? NetworkType[process.env["REACT_APP_NETWORK"].toUpperCase() as keyof typeof NetworkType] : NetworkType.GHOSTNET,
-                    rpcUrl: process.env["REACT_APP_TEZOS_NODE"]!
+            const permissions: PermissionResponseOutput = await Tezos.requestPermissions(
+                {
+                    network: {
+                        type: NetworkType.CUSTOM,
+                        rpcUrl: process.env["REACT_APP_DEKU_NODE"]!
+                    },
+                    scopes: [PermissionScope.OPERATION_REQUEST]
                 }
-            });
+            );
             setUserAddress(permissions.address);
             setActiveAccount(permissions.accountInfo);
 
