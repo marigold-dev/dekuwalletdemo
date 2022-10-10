@@ -32,17 +32,20 @@ function App() {
       setDekuClient(dekuClient);
 
       setUserAddress2("tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6");
-      console.log("call once");
+      console.log("call once", dekuClient);
     })();
   }, []
   );
 
   useEffect(() => {
     (async () => {
-      setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
-      const intervalId = setInterval(() => { dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }); console.log("Balance refreshed"); }, 15 * 1000);
-      return () => { clearInterval(intervalId); };
+      if (dekuClient) {
+        setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
+        const intervalId = setInterval(() => { dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }); console.log("Balance refreshed"); }, 15 * 1000);
+        return () => { clearInterval(intervalId); };
+      }
     })();
+
   }, [userAddress]
   );
 
@@ -50,7 +53,7 @@ function App() {
     try {
       const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
     } catch (error: any) {
-      console.table(`Error: ${JSON.stringify(error, null, 2)}`);
+      console.log(`Error: `, error);
     } finally {
     }
   };
