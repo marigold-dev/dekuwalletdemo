@@ -1,4 +1,4 @@
-import { AccountInfo, DAppClient } from '@airgap/beacon-sdk';
+import { AccountInfo, DAppClient, DekuBlockchain } from '@airgap/beacon-sdk';
 import { DekuToolkit, fromBeaconSigner } from '@marigold-dev/deku-toolkit';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -19,7 +19,12 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setdAppClient(new DAppClient({ name: "Test" }));
+
+      let client: DAppClient = new DAppClient({ name: "Test" });
+      const dekuBlockchain = new DekuBlockchain();
+      client.addBlockchain(dekuBlockchain);
+      setdAppClient(client);
+
 
       const dekuClient = new DekuToolkit({
         dekuRpc: process.env["REACT_APP_DEKU_NODE"]!, dekuSigner: fromBeaconSigner(dAppClient!)
@@ -28,7 +33,11 @@ function App() {
         .onBlock(block => {
           console.log("The client received a block");
           console.log(block);
-        })
+        });
+
+
+
+
       setDekuClient(dekuClient);
 
       setUserAddress2("tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6");

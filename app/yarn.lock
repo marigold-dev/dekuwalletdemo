@@ -7,6 +7,12 @@
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.1.tgz#b38b444ad3aa5fedbb15f2f746dcd934226a12dd"
   integrity sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==
 
+"@airgap/beacon-blockchain-deku@file:../../beacon-sdk/packages/beacon-blockchain-deku":
+  version "3.2.0"
+  dependencies:
+    "@airgap/beacon-types" "^3.2.0"
+    "@airgap/beacon-ui" "^3.2.0"
+
 "@airgap/beacon-blockchain-substrate@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@airgap/beacon-blockchain-substrate/-/beacon-blockchain-substrate-3.2.0.tgz#a26b61f0a1ec828e624fe998ca1dd7d76697c477"
@@ -47,10 +53,8 @@
     "@airgap/beacon-ui" "^3.2.0"
     qrcode-generator "1.4.4"
 
-"@airgap/beacon-sdk@^3.2.0":
+"@airgap/beacon-sdk@file:../../beacon-sdk/packages/beacon-sdk":
   version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@airgap/beacon-sdk/-/beacon-sdk-3.2.0.tgz#19dee65aa37ccae85ea77c29b6f90f2eb011ad2e"
-  integrity sha512-wBUnUh9NsYzR6stTRnUbKRM55pHyX7OTp93ts0amoelyUlOapFxVyPT2YjNb2O5crKK+lVPQFars6TchktbmGA==
   dependencies:
     "@airgap/beacon-blockchain-substrate" "^3.2.0"
     "@airgap/beacon-blockchain-tezos" "^3.2.0"
