@@ -21,26 +21,29 @@ function App() {
     (async () => {
       setdAppClient(new DAppClient({ name: "Test" }));
 
-      setDekuClient(new DekuToolkit({
+      const dekuClient = new DekuToolkit({
         dekuRpc: process.env["REACT_APP_DEKU_NODE"]!, dekuSigner: fromBeaconSigner(dAppClient!)
       })
         .setTezosRpc(process.env["REACT_APP_TEZOS_NODE"]!)
         .onBlock(block => {
           console.log("The client received a block");
           console.log(block);
-        }));
+        })
+      setDekuClient(dekuClient);
 
       setUserAddress2("tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6");
-
-      setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
-      const intervalId = setInterval(() => { dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }); console.log("Balance refreshed"); }, 15 * 1000);
-
-
       console.log("call once");
-
-      return () => { clearInterval(intervalId); };
     })();
   }, []
+  );
+
+  useEffect(() => {
+    (async () => {
+      setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
+      const intervalId = setInterval(() => { dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }); console.log("Balance refreshed"); }, 15 * 1000);
+      return () => { clearInterval(intervalId); };
+    })();
+  }, [userAddress]
   );
 
   const handleL2Transfer = async () => {
