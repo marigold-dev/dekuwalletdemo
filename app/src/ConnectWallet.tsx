@@ -1,4 +1,5 @@
 import {
+    AccountInfo,
     DAppClient,
     NetworkType
 } from "@airgap/beacon-sdk";
@@ -7,11 +8,13 @@ import { Dispatch, SetStateAction } from "react";
 type ButtonProps = {
     Tezos: DAppClient;
     setUserAddress: Dispatch<SetStateAction<string>>;
+    setActiveAccount: Dispatch<SetStateAction<AccountInfo | undefined>>;
 };
 
 const ConnectButton = ({
     Tezos,
     setUserAddress,
+    setActiveAccount
 }: ButtonProps): JSX.Element => {
 
     const connectWallet = async (): Promise<void> => {
@@ -26,6 +29,7 @@ const ConnectButton = ({
                 }
             });
             setUserAddress(permissions.address);
+            setActiveAccount(permissions.accountInfo);
 
         } catch (error) {
             console.log(error);

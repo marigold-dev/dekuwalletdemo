@@ -1,4 +1,4 @@
-import { AccountInfo, DAppClient, DekuBlockchain } from '@airgap/beacon-sdk';
+import { AccountInfo, BeaconMessageType, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope } from '@airgap/beacon-sdk';
 import { DekuToolkit, fromBeaconSigner } from '@marigold-dev/deku-toolkit';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -35,9 +35,6 @@ function App() {
           console.log(block);
         });
 
-
-
-
       setDekuClient(dekuClient);
 
       setUserAddress2("tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6");
@@ -60,7 +57,18 @@ function App() {
 
   const handleL2Transfer = async () => {
     try {
-      const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
+      await dAppClient?.request(
+        {
+          blockchainIdentifier: DekuBlockchain.name,
+          type: BeaconMessageType.BlockchainRequest,
+          accountId: activeAccount!.accountIdentifier,
+          blockchainData: {
+            type: DekuMessageType.transfer_request,
+            scope: DekuPermissionScope.transfer
+          }
+        }
+      );
+      // const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
     } catch (error: any) {
       console.log(`Error: `, error);
     } finally {
@@ -79,6 +87,7 @@ function App() {
           <ConnectButton
             Tezos={dAppClient!}
             setUserAddress={setUserAddress}
+            setActiveAccount={setActiveAccount}
           />
           :
           <DisconnectButton
