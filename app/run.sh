@@ -1,0 +1,1 @@
+rm -rf node_modules/ ; yarn ; yarn upgrade @airgap/beacon-sdk@file:../../beacon-sdk/packages/beacon-sdk ; yarn run start

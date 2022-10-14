@@ -1,28 +1,43 @@
 import {
-    AccountInfo, DAppClient,
-    NetworkType,
-    PermissionResponseOutput,
-    PermissionScope
+    AccountInfo, BeaconMessageType, DAppClient, DekuPermissionRequest, DekuPermissionResponse, DekuPermissionScope, NetworkType, PermissionRequestV3
 } from "@airgap/beacon-sdk";
 import { Dispatch, SetStateAction } from "react";
 
 type ButtonProps = {
     Tezos: DAppClient;
     setUserAddress: Dispatch<SetStateAction<string>>;
-    setActiveAccount: Dispatch<SetStateAction<AccountInfo | undefined>>;
 };
 
 const ConnectButton = ({
     Tezos,
-    setUserAddress,
-    setActiveAccount
+    setUserAddress
 }: ButtonProps): JSX.Element => {
 
     const connectWallet = async (): Promise<void> => {
         try {
             //to authorize new connection
             await Tezos.clearActiveAccount();
+            console.log("dappBeacon", Tezos);
 
+            const dekuPermissionRequest: DekuPermissionRequest = {
+                blockchainIdentifier: "deku",
+                type: BeaconMessageType.PermissionRequest,
+                blockchainData: {
+                    appMetadata: {
+                        senderId: "dekuDemoID",
+                        name: "dekuDemo"
+                    },
+                    scopes: [DekuPermissionScope.transfer],
+                    network: {
+                        type: NetworkType.CUSTOM,
+                        rpcUrl: process.env["REACT_APP_DEKU_NODE"]!
+                    },
+                }
+            };
+
+            let permissions: DekuPermissionResponse = await Tezos.permissionRequest(dekuPermissionRequest as PermissionRequestV3<"deku">) as DekuPermissionResponse;
+            console.log("DekuPermissionResponse permissions", permissions)
+            /*
             const permissions: PermissionResponseOutput = await Tezos.requestPermissions(
                 {
                     network: {
@@ -31,9 +46,11 @@ const ConnectButton = ({
                     },
                     scopes: [PermissionScope.OPERATION_REQUEST]
                 }
-            );
-            setUserAddress(permissions.address);
-            setActiveAccount(permissions.accountInfo);
+            );*/
+
+            const activeAccount = (await Tezos.getActiveAccount()) as AccountInfo;
+
+            setUserAddress(activeAccount.address);
 
         } catch (error) {
             console.log(error);

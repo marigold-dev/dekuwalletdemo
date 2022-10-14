@@ -1,4 +1,4 @@
-import { AccountInfo, BeaconMessageType, BlockchainRequestV3, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope, DekuTransferRequest } from '@airgap/beacon-sdk';
+import { BeaconMessageType, BlockchainRequestV3, BlockchainResponseV3, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope, DekuTransferRequest } from '@airgap/beacon-sdk';
 import { DekuToolkit, fromBeaconSigner } from '@marigold-dev/deku-toolkit';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -11,7 +11,6 @@ function App() {
   const [userAddress, setUserAddress] = useState<string>("");
   const [userBalance, setUserBalance] = useState<number>(0);
   const [userAddress2, setUserAddress2] = useState<string>("");
-  const [activeAccount, setActiveAccount] = useState<AccountInfo>();
   const [dekuClient, setDekuClient] = useState<DekuToolkit>();
 
   const ticketer: string = process.env["REACT_APP_CONTRACT"]!;
@@ -71,7 +70,8 @@ function App() {
         }
       };
 
-      await dAppClient?.request({ ...request, accountId: activeAccount!.accountIdentifier } as BlockchainRequestV3<"deku">);
+      const br: BlockchainResponseV3<string> | undefined = await dAppClient?.request({ ...request, accountId: (await dAppClient.getActiveAccount())!.accountIdentifier } as BlockchainRequestV3<"deku">);
+      console.log("BlockchainResponseV3", br);
       // const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
     } catch (error: any) {
       console.log(`Error: `, error);
@@ -91,7 +91,6 @@ function App() {
           <ConnectButton
             Tezos={dAppClient!}
             setUserAddress={setUserAddress}
-            setActiveAccount={setActiveAccount}
           />
           :
           <DisconnectButton
