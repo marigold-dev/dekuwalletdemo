@@ -5,15 +5,18 @@ interface ButtonProps {
     Tezos: DAppClient;
     userAddress: string;
     setUserAddress: Dispatch<SetStateAction<string>>;
+    setUserBalance: Dispatch<SetStateAction<number>>;
 }
 
 const DisconnectButton = ({
     Tezos,
     userAddress,
     setUserAddress,
+    setUserBalance
 }: ButtonProps): JSX.Element => {
     const disconnectWallet = async (): Promise<void> => {
         setUserAddress("");
+        setUserBalance(0);
         await Tezos.clearActiveAccount();
         Tezos.removeAllAccounts();
         console.log("removing user " + userAddress);

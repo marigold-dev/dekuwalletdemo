@@ -1,6 +1,6 @@
 import { BeaconMessageType, BlockchainRequestV3, BlockchainResponseV3, DAppClient, DekuBlockchain, DekuMessageType, DekuPermissionScope, DekuTransferRequest } from '@airgap/beacon-sdk';
 import { DekuToolkit, fromBeaconSigner } from '@marigold-dev/deku-toolkit';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import ConnectButton from './ConnectWallet';
 import DisconnectButton from './DisconnectWallet';
@@ -9,6 +9,8 @@ function App() {
 
   const [dAppClient, setdAppClient] = useState<DAppClient>();
   const [userAddress, setUserAddress] = useState<string>("");
+  let oldUserAddress = useRef<string>();
+
   const [userBalance, setUserBalance] = useState<number>(0);
   const [userAddress2, setUserAddress2] = useState<string>("");
   const [dekuClient, setDekuClient] = useState<DekuToolkit>();
@@ -45,9 +47,23 @@ function App() {
   useEffect(() => {
     (async () => {
       if (dekuClient) {
-        setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
-        const intervalId = setInterval(() => { dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }); console.log("Balance refreshed"); }, 15 * 1000);
-        return () => { clearInterval(intervalId); };
+        if (userAddress) {
+          setUserBalance(await dekuClient!.getBalance(userAddress, { ticketer: ticketer, data: ticketBytes }));
+          oldUserAddress.current = userAddress; //keep ref
+          const intervalId = setInterval(async () => {
+            try {
+              if (oldUserAddress.current) setUserBalance(await dekuClient!.getBalance(oldUserAddress.current, { ticketer: ticketer, data: ticketBytes }));
+              console.log("Balance refreshed on " + oldUserAddress.current);
+            } catch (err) {
+              console.log(err);
+            }
+          }, 15 * 1000);
+          return () => { clearInterval(intervalId); };
+
+        } else {
+          oldUserAddress.current = undefined;
+        }
+
       }
     })();
 
@@ -66,7 +82,10 @@ function App() {
           amount: "1",
           mode: 'submit',
           recipient: userAddress2,
-          sourceAddress: userAddress
+          sourceAddress: userAddress,
+          ticketer: ticketer,
+          data: ticketBytes,
+          options: {}
         }
       };
 
@@ -83,9 +102,10 @@ function App() {
     <div className="App">
       <header className="App-header">
 
+        <h1>DEKU DEMO</h1>
+        <h2>Sign tx with Temple/BeaconSDK v3 messages</h2>
 
-        <hr />
-        <h1>USER1</h1>
+        <hr style={{ width: "100%" }} />
 
         {!userAddress ?
           <ConnectButton
@@ -97,6 +117,7 @@ function App() {
             Tezos={dAppClient!}
             userAddress={userAddress}
             setUserAddress={setUserAddress}
+            setUserBalance={setUserBalance}
           />}
 
         <div>

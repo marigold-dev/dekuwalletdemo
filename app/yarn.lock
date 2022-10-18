@@ -10,20 +10,20 @@
 "@airgap/beacon-blockchain-deku@file:../../beacon-sdk/packages/beacon-blockchain-deku":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-deku-3.3.0-c07d4f16-958c-4999-b411-c5dbb50170c5-1665737380676/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-deku-3.3.0-c07d4f16-958c-4999-b411-c5dbb50170c5-1665737380676/node_modules/@airgap/beacon-ui"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-deku-3.3.0-11e70023-984e-4609-b66a-c900887e27bc-1666105712168/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-deku-3.3.0-11e70023-984e-4609-b66a-c900887e27bc-1666105712168/node_modules/@airgap/beacon-ui"
 
 "@airgap/beacon-blockchain-substrate@file:../../beacon-sdk/packages/beacon-blockchain-substrate":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-substrate-3.3.0-44364eb4-e8f8-4953-bcdb-27293ec6d42f-1665737380676/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-substrate-3.3.0-44364eb4-e8f8-4953-bcdb-27293ec6d42f-1665737380676/node_modules/@airgap/beacon-ui"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-substrate-3.3.0-13bcdf6f-a0ec-4894-ad12-8e2633200c7f-1666105712173/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-substrate-3.3.0-13bcdf6f-a0ec-4894-ad12-8e2633200c7f-1666105712173/node_modules/@airgap/beacon-ui"
 
 "@airgap/beacon-blockchain-tezos@file:../../beacon-sdk/packages/beacon-blockchain-tezos":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-tezos-3.3.0-eba5a495-a26c-4fea-81e3-5ed257fa196f-1665737380676/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-tezos-3.3.0-eba5a495-a26c-4fea-81e3-5ed257fa196f-1665737380676/node_modules/@airgap/beacon-ui"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-tezos-3.3.0-08be553b-b851-4ff5-936e-e53ecebef65f-1666105712170/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-blockchain-tezos-3.3.0-08be553b-b851-4ff5-936e-e53ecebef65f-1666105712170/node_modules/@airgap/beacon-ui"
 
 "@airgap/beacon-core@^3.3.0":
   version "3.3.0"
@@ -41,8 +41,8 @@
 "@airgap/beacon-core@file:../../beacon-sdk/packages/beacon-core":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-core-3.3.0-8817bc15-f44c-4d25-b2a6-ecff0c3cce1a-1665737380677/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-core-3.3.0-8817bc15-f44c-4d25-b2a6-ecff0c3cce1a-1665737380677/node_modules/@airgap/beacon-utils"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-core-3.3.0-e531fa48-3236-4568-a274-9eef51cbba6d-1666105712169/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-core-3.3.0-e531fa48-3236-4568-a274-9eef51cbba6d-1666105712169/node_modules/@airgap/beacon-utils"
     "@stablelib/ed25519" "^1.0.3"
     "@stablelib/nacl" "^1.0.4"
     "@stablelib/utf8" "^1.0.1"
@@ -63,27 +63,27 @@
 "@airgap/beacon-dapp@file:../../beacon-sdk/packages/beacon-dapp":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-ad3bc56b-4857-44c6-96f6-598edeeeddee-1665737380678/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-ad3bc56b-4857-44c6-96f6-598edeeeddee-1665737380678/node_modules/@airgap/beacon-transport-matrix"
-    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-ad3bc56b-4857-44c6-96f6-598edeeeddee-1665737380678/node_modules/@airgap/beacon-transport-postmessage"
-    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-ad3bc56b-4857-44c6-96f6-598edeeeddee-1665737380678/node_modules/@airgap/beacon-ui"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-8c052ac6-2c7c-42ff-9ea7-31e9fdabbc1d-1666105712171/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-8c052ac6-2c7c-42ff-9ea7-31e9fdabbc1d-1666105712171/node_modules/@airgap/beacon-transport-matrix"
+    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-8c052ac6-2c7c-42ff-9ea7-31e9fdabbc1d-1666105712171/node_modules/@airgap/beacon-transport-postmessage"
+    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-dapp-3.3.0-8c052ac6-2c7c-42ff-9ea7-31e9fdabbc1d-1666105712171/node_modules/@airgap/beacon-ui"
     bs58check "^2.1.2"
     qrcode-generator "1.4.4"
 
 "@airgap/beacon-sdk@file:../../beacon-sdk/packages/beacon-sdk":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-blockchain-deku" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-blockchain-deku"
-    "@airgap/beacon-blockchain-substrate" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-blockchain-substrate"
-    "@airgap/beacon-blockchain-tezos" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-blockchain-tezos"
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-dapp" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-dapp"
-    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-transport-matrix"
-    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-transport-postmessage"
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-ui"
-    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-utils"
-    "@airgap/beacon-wallet" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-66894559-9303-464a-91a1-b0f90419c037-1665737380669/node_modules/@airgap/beacon-wallet"
+    "@airgap/beacon-blockchain-deku" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-blockchain-deku"
+    "@airgap/beacon-blockchain-substrate" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-blockchain-substrate"
+    "@airgap/beacon-blockchain-tezos" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-blockchain-tezos"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-dapp" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-dapp"
+    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-transport-matrix"
+    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-transport-postmessage"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-ui" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-ui"
+    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-utils"
+    "@airgap/beacon-wallet" "file:../../.cache/yarn/v6/npm-@airgap-beacon-sdk-3.3.0-0a7c7dfc-f082-414f-8747-d38cb73d7af0-1666105712161/node_modules/@airgap/beacon-wallet"
 
 "@airgap/beacon-transport-matrix@^3.3.0":
   version "3.3.0"
@@ -97,8 +97,8 @@
 "@airgap/beacon-transport-matrix@file:../../beacon-sdk/packages/beacon-transport-matrix":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-matrix-3.3.0-704818ea-96a3-46eb-9617-2224d68ddc6d-1665737380678/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-matrix-3.3.0-704818ea-96a3-46eb-9617-2224d68ddc6d-1665737380678/node_modules/@airgap/beacon-utils"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-matrix-3.3.0-89dc7af1-3851-4335-be94-62e2b3ce23c9-1666105712172/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-matrix-3.3.0-89dc7af1-3851-4335-be94-62e2b3ce23c9-1666105712172/node_modules/@airgap/beacon-utils"
     axios "0.24.0"
 
 "@airgap/beacon-transport-postmessage@^3.3.0":
@@ -113,9 +113,9 @@
 "@airgap/beacon-transport-postmessage@file:../../beacon-sdk/packages/beacon-transport-postmessage":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-34bbf85f-2858-4824-ab13-e38025861f45-1665737380679/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-34bbf85f-2858-4824-ab13-e38025861f45-1665737380679/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-34bbf85f-2858-4824-ab13-e38025861f45-1665737380679/node_modules/@airgap/beacon-utils"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-77e3c46b-160a-4f80-a465-76389485e56a-1666105712171/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-77e3c46b-160a-4f80-a465-76389485e56a-1666105712171/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-transport-postmessage-3.3.0-77e3c46b-160a-4f80-a465-76389485e56a-1666105712171/node_modules/@airgap/beacon-utils"
 
 "@airgap/beacon-types@^3.3.0":
   version "3.3.0"
@@ -142,10 +142,10 @@
 "@airgap/beacon-ui@file:../../beacon-sdk/packages/beacon-ui":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-51f6893e-9ce1-4178-9ee9-ec26a6f39c0c-1665737380679/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-51f6893e-9ce1-4178-9ee9-ec26a6f39c0c-1665737380679/node_modules/@airgap/beacon-transport-postmessage"
-    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-51f6893e-9ce1-4178-9ee9-ec26a6f39c0c-1665737380679/node_modules/@airgap/beacon-types"
-    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-51f6893e-9ce1-4178-9ee9-ec26a6f39c0c-1665737380679/node_modules/@airgap/beacon-utils"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-5db8c106-5742-48c5-b24c-d238c19e5ea5-1666105712172/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-5db8c106-5742-48c5-b24c-d238c19e5ea5-1666105712172/node_modules/@airgap/beacon-transport-postmessage"
+    "@airgap/beacon-types" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-5db8c106-5742-48c5-b24c-d238c19e5ea5-1666105712172/node_modules/@airgap/beacon-types"
+    "@airgap/beacon-utils" "file:../../.cache/yarn/v6/npm-@airgap-beacon-ui-3.3.0-5db8c106-5742-48c5-b24c-d238c19e5ea5-1666105712172/node_modules/@airgap/beacon-utils"
 
 "@airgap/beacon-utils@^3.3.0":
   version "3.3.0"
@@ -168,9 +168,9 @@
 "@airgap/beacon-wallet@file:../../beacon-sdk/packages/beacon-wallet":
   version "3.3.0"
   dependencies:
-    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-a31792fc-f3cf-478d-9d85-8a9ed5c6bca9-1665737380680/node_modules/@airgap/beacon-core"
-    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-a31792fc-f3cf-478d-9d85-8a9ed5c6bca9-1665737380680/node_modules/@airgap/beacon-transport-matrix"
-    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-a31792fc-f3cf-478d-9d85-8a9ed5c6bca9-1665737380680/node_modules/@airgap/beacon-transport-postmessage"
+    "@airgap/beacon-core" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-c9af33ae-380c-4f2a-aee0-d697af82a168-1666105712173/node_modules/@airgap/beacon-core"
+    "@airgap/beacon-transport-matrix" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-c9af33ae-380c-4f2a-aee0-d697af82a168-1666105712173/node_modules/@airgap/beacon-transport-matrix"
+    "@airgap/beacon-transport-postmessage" "file:../../.cache/yarn/v6/npm-@airgap-beacon-wallet-3.3.0-c9af33ae-380c-4f2a-aee0-d697af82a168-1666105712173/node_modules/@airgap/beacon-transport-postmessage"
     "@stablelib/ed25519" "^1.0.3"
 
 "@ampproject/remapping@^2.1.0":
