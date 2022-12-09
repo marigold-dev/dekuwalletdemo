@@ -5,7 +5,6 @@
   "dependencies": {
     "@airgap/beacon-sdk": "file:../../beacon-sdk/packages/beacon-sdk",
     "@dipdup/tzkt-api": "^0.0.1",
-    "@marigold-dev/deku-toolkit": "^0.1.6",
     "@taquito/beacon-wallet": "^14.0.0",
     "@taquito/taquito": "^14.0.0",
     "@testing-library/jest-dom": "^5.14.1",
