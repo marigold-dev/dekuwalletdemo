@@ -1,14 +1,16 @@
 import {
-  BeaconMessageType,
-  BlockchainRequestV3,
-  BlockchainResponseV3,
-  DAppClient,
   DekuBlockchain,
   DekuMessageType,
   DekuPermissionScope,
   DekuTransferRequest,
+} from "@airgap/beacon-blockchain-deku";
+import {
+  BeaconMessageType,
+  BlockchainRequestV3,
+  BlockchainResponseV3,
+  DAppClient,
 } from "@airgap/beacon-sdk";
-import { DekuToolkit, fromBeaconSigner } from "@marigold-dev/deku-toolkit";
+import { DekuPClient, fromBeaconSigner } from "@marigold-dev/deku";
 import { PackDataParams, PackDataResponse } from "@taquito/rpc";
 import { MichelCodecPacker } from "@taquito/taquito";
 import { useEffect, useRef, useState } from "react";
@@ -23,7 +25,7 @@ function App() {
 
   const [userBalance, setUserBalance] = useState<number>(0);
   const [userAddress2, setUserAddress2] = useState<string>("");
-  const [dekuClient, setDekuClient] = useState<DekuToolkit>();
+  const [dekuClient, setDekuClient] = useState<DekuPClient>();
   const [ticketBytes, setTicketBytes] = useState<string>("");
 
   const ticketer: string = process.env["REACT_APP_CONTRACT"]!;
@@ -63,11 +65,14 @@ function App() {
       client.addBlockchain(dekuBlockchain);
       setdAppClient(client);
 
-      const dekuClient = new DekuToolkit({
-        dekuRpc: process.env["REACT_APP_DEKU_NODE"]!,
-        dekuSigner: fromBeaconSigner(dAppClient!),
+      const dekuSigner = fromBeaconSigner(dAppClient!);
+      console.log("dekuSigner", dekuSigner);
+
+      const dekuClient = new DekuPClient({
+        dekuRpc: "http://localhost:8080", //process.env["REACT_APP_DEKU_NODE"]!,
+        dekuSigner,
       }).setTezosRpc(process.env["REACT_APP_TEZOS_NODE"]!);
-      setDekuClient(dekuClient);
+      setDekuClient(dekuClient!);
 
       setUserAddress2("tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6");
       console.log("call once", dekuClient);
@@ -133,7 +138,44 @@ function App() {
           accountId: (await dAppClient.getActiveAccount())!.accountIdentifier,
         } as BlockchainRequestV3<"deku">);
       console.log("BlockchainResponseV3", br);
-      // const opHash = await dekuClient!.transferTo(userAddress2, 1, ticketer, ticketBytes);
+    } catch (error: any) {
+      console.log(`Error: `, error);
+    } finally {
+    }
+  };
+
+  const handleL2Sign = async () => {
+    try {
+      const activeAccount = await dAppClient?.getActiveAccount();
+      console.log("activeAccount", activeAccount);
+      const dekuSigner = fromBeaconSigner(dAppClient!);
+      dekuClient?.setDekuSigner(dekuSigner);
+
+      const opHash = await dekuClient!.transferTo(
+        userAddress2,
+        1,
+        ticketer,
+        ticketBytes
+      );
+
+      /*
+      let request: DekuSignPayloadRequest = {
+        blockchainIdentifier: "deku",
+        type: BeaconMessageType.BlockchainRequest,
+        blockchainData: {
+          type: DekuMessageType.sign_payload_request,
+          scope: DekuPermissionScope.sign_payload_json,
+          payload: "{...}",
+          mode: "submit",
+        },
+      };
+
+      const br: BlockchainResponseV3<string> | undefined =
+        await dAppClient?.request({
+          ...request,
+          accountId: (await dAppClient.getActiveAccount())!.accountIdentifier,
+        } as BlockchainRequestV3<"deku">);*/
+      console.log("opHash", opHash);
     } catch (error: any) {
       console.log(`Error: `, error);
     } finally {
@@ -170,7 +212,12 @@ function App() {
             value={userAddress2}
             onChange={(e) => setUserAddress2(e.currentTarget.value)}
           ></input>
-          <button onClick={handleL2Transfer}>Send money</button>
+          <button onClick={handleL2Transfer}>
+            Send money (DekuTransferRequest)
+          </button>
+          <button onClick={handleL2Sign}>
+            Send money (DekuSign aka magic bytes)
+          </button>
         </div>
       </header>
     </div>
