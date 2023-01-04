@@ -69,7 +69,7 @@ function App() {
       console.log("dekuSigner", dekuSigner);
 
       const dekuClient = new DekuPClient({
-        dekuRpc: "http://localhost:8080", //process.env["REACT_APP_DEKU_NODE"]!,
+        dekuRpc: process.env["REACT_APP_DEKU_NODE"]!,
         dekuSigner,
       }).setTezosRpc(process.env["REACT_APP_TEZOS_NODE"]!);
       setDekuClient(dekuClient!);
